@@ -1,15 +1,22 @@
 apiVersion: v1
 kind: Pod
 Metadata:
+     name: bear
+spec:
+  containers:
+  - name: animals
+    image: supergiantkir/animals:bear
+    ports:
+    - containerPort: 80
+
+---
+apiVersion: v1
+kind: Pod
+Metadata:
      name: nginx
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.7.9
+  - name: animals
+    image: nginx:latest
     ports:
     - containerPort: 80
-  
-  - name: springapp
-    image: yanivomc/spring-music:latest
-    ports:
-    - containerPort: 8080
