@@ -7,15 +7,15 @@ spec:
   - name: redis
     image: redis
     volumeMounts:
-    - name: redis-persistent-storage
-      mountPath: /data/redis
+    - name: app-storage
+      mountPath: /storage
   - name: springapp
     image: yanivomc/spring-music:latest
     volumeMounts:
-    - name: redis-persistent-storage
-      mountPath: /app/data
+    - name: app-storage
+      mountPath: /storage
   volumes:
-  - name: redis-persistent-storage
+  - name: app-storage
     hostPath:
-      path: /data
+      path: /tmp/files
       type: DirectoryOrCreate
