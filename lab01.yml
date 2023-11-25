@@ -1,22 +1,14 @@
-apiVersion: v1
-kind: Pod
-Metadata:
-     name: bear
+apiVersion: v1 # K8S API Version
+kind: Pod  # Object Type
+metadata: 
+ name: nginx  
 spec:
-  containers:
-  - name: animals
-    image: supergiantkir/animals:bear
-    ports:
-    - containerPort: 80
-
----
-apiVersion: v1
-kind: Pod
-Metadata:
-     name: nginx
-spec:
-  containers:
-  - name: animals
-    image: nginx:latest
-    ports:
-    - containerPort: 80
+ containers: 
+ - name: nginx 
+   image: nginx:1.7.9 
+   ports: 
+   - containerPort: 80
+ - name: springapp
+   image: yanivomc/spring-music:latest
+   ports: 
+   - containerPort: 8080
